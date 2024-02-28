@@ -1,0 +1,94 @@
+<div class="container ">
+
+    <div class="row mt-3">
+        <label class="col-md-2 control-label">Employee Name : </label>
+        <div class="col-md-4">
+            <input type="text" class="form-control" [(ngModel)]="Employee.empName">
+        </div>
+        <label class="col-md-2 mt-2 control-label">Employee Joining Date : </label>
+        <div class="col-md-4">
+            <input type="date" class="form-control" [(ngModel)]="Employee.empJoin">
+        </div>
+    </div>
+
+    <div class="row mt-3">
+        <label class="col-md-2 control-label">Employee Address : </label>
+        <div class="col-md-4">
+            <input type="text" class="form-control" [(ngModel)]="Employee.empAddress">
+        </div>
+        <label class="col-md-2 mt-2 control-label">Gender : </label>
+        <div class="col-md-4">
+            <select class="form-control" [(ngModel)]="Employee.empGender">
+                <option value="">Select </option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+            <!-- <input type="text" class="form-control" [(ngModel)]="Employee.empGender"> -->
+            
+        </div>
+    </div>
+
+    <div class="row mt-3">
+        <label class="col-md-2 control-label">Employee Contact : </label>
+        <div class="col-md-4">
+            <input type="tel" class="form-control" [(ngModel)]="Employee.empMobile">
+        </div>
+        <label class="col-md-2 mt-2 control-label">Email : </label>
+        <div class="col-md-4">
+            <input type="email" class="form-control" [(ngModel)]="Employee.empMail">
+        </div>
+    </div>
+
+    <div class="row mt-3">
+      
+        <div class="col-md-4">
+            <button class="btn btn-primary" (click)="add()">Add</button>
+        </div>
+    </div>
+
+</div>
+<hr>
+<table class="table table-dark">
+    <thead>
+      <tr>
+        <th>Company Name </th>
+        <th>Designation</th>
+        <th>From Data</th>
+        <th>To Data</th>
+        <th>Experience</th>
+        <th>Country</th>
+        <th>State</th>
+        <th>City</th>
+        <th>Save</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <tr>
+       <th colspan="10"><input type="date" class="form-control"></th>
+        <td><button class="btn btn-primary">button</button></td>
+      </tr>
+      
+      <tr class="w-100 h-100">
+        <td colspan="11"><button class="col-6 d-flex justify-content-center align-items-center btn btn-primary" (click)="save()">Save</button></td>
+      </tr>
+
+      <!-- ngFor  -->
+      <tr *ngFor="let row of rows;let i = index">
+        <td><input type="text" class="form-control" placeholder="Company Name" [(ngModel)]="company.name" [ngModelOptions]="{standalone: true}"></td>
+        <td><input type="text" class="form-control" placeholder="Role" [(ngModel)]="company.role" [ngModelOptions]="{standalone: true}"></td>
+        <td><input type="date" class="form-control"  [(ngModel)]="company.fromDate" [ngModelOptions]="{standalone: true}"></td>
+        <td><input type="date" class="form-control" [(ngModel)]="company.toDate" [ngModelOptions]="{standalone: true}"></td>
+        <td><input type="number" class="form-control" placeholder="Experiences" [(ngModel)]="company.experiences" [ngModelOptions]="{standalone: true}"></td>
+        <td><input type="text" placeholder="Country" class="form-control" [(ngModel)]="company.country" [ngModelOptions]="{standalone: true}"></td>
+        <td><input type="text" placeholder="State" class="form-control" [(ngModel)]="company.state" [ngModelOptions]="{standalone: true}"></td>
+        <td><input type="text" placeholder="City" class="form-control" [(ngModel)]="company.city" [ngModelOptions]="{standalone: true}"></td>
+       
+        <td><button class="btn btn-warning" (click)="edit(i)">Edit </button></td>
+        <td><button class="btn btn-danger" (click)="del(i)">delete</button></td>
+      </tr>
+      
+    </tbody>
+  </table>
